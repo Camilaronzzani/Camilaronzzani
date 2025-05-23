@@ -27,5 +27,4 @@ jobs:
           commit_message: "Generated snake 🐍"
           branch: main
           file_pattern: 'snake/*.svg'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          push_options: '--repo=https://Camilaronzzani:${{ secrets.GH_TOKEN }}@github.com/Camilaronzzani/Camilaronzzani.git'
