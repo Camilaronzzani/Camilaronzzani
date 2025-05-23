@@ -1,0 +1,29 @@
+name: Generate Snake Game
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"  # Atualiza a cada 12 horas
+  workflow_dispatch:        # Permite executar manualmente
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate the snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: Camilaronzzani
+          outputs: |
+            ./snake/github-snake.svg
+            ./snake/github-snake-dark.svg?palette=github-dark
+
+      - name: Commit and push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: master
+          force: true
