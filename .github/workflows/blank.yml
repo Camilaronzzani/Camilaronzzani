@@ -2,18 +2,20 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *" # roda todo dia
-  workflow_dispatch: # permite rodar manual
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Permissão para push
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate Snake Game from Contributions
+      - name: Generate Snake
         uses: Platane/snk@v3
         with:
           github_user_name: Camilaronzzani
@@ -27,4 +29,4 @@ jobs:
           git config --global user.email "109353955+Camilaronzzani@users.noreply.github.com"
           git add .
           git commit -m "Generated snake 🐍" || echo "No changes to commit"
-          git push https://Camilaronzzani:${{ secrets.GH_TOKEN }}@github.com/Camilaronzzani/Camilaronzzani.git main
+          git push
