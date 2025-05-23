@@ -43,10 +43,7 @@
 
 ## 🎮 Cobrinha comendo meus commits
 
-<p align="center">
-  <img src="https://github.com/Camilaronzzani/Camilaronzzani/blob/master/snake/github-snake.svg" alt="Snake animation" />
-</p>
-
+![Snake animation](https://github.com/Camilaronzzani/Camilaronzzani/blob/main/snake/github-snake.svg)
 ---
 
 ## 🌐 Onde me encontrar
