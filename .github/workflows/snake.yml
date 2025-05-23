@@ -3,7 +3,7 @@ name: Generate Snake Game
 on:
   schedule:
     - cron: "0 */12 * * *"  # roda a cada 12 horas
-  workflow_dispatch:        # permite executar manualmente
+  workflow_dispatch:
 
 jobs:
   generate:
@@ -24,6 +24,6 @@ jobs:
       - name: Commit and push
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
           force: true
