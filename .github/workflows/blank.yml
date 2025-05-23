@@ -2,15 +2,15 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Executa diariamente
-  workflow_dispatch:
+    - cron: "0 0 * * *" # roda todo dia à meia-noite
+  workflow_dispatch: # permite rodar manual
 
 jobs:
   generate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Generate Snake Game from Contributions
@@ -21,9 +21,10 @@ jobs:
             ./snake/github-snake.svg
             ./snake/github-snake-dark.svg
 
-      - name: Push to GitHub
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: main
-          force: true
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Generated snake 🐍" || echo "No changes to commit"
+          git push https://Camilaronzzani:${{ secrets.GH_TOKEN }}@github.com/Camilaronzzani/Camilaronzzani.git main
