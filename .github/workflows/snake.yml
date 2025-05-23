@@ -2,8 +2,8 @@ name: Generate Snake Game
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
-  workflow_dispatch:
+    - cron: "0 */12 * * *"  # Executa a cada 12 horas
+  workflow_dispatch:       # Permite executar manualmente
 
 jobs:
   generate:
@@ -22,8 +22,11 @@ jobs:
             ./snake/github-snake-dark.svg?palette=github-dark
 
       - name: Commit and push
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: main
-          force: true
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Generated snake 🐍" || echo "No changes to commit"
+          git push https://$TOKEN@github.com/Camilaronzzani/Camilaronzzani.git main
+        env:
+          TOKEN: ${{ secrets.GH_TOKEN }}
