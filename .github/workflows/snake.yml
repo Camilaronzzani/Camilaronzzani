@@ -2,7 +2,7 @@ name: Generate Snake Game
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */12 * * *"  # Executa a cada 12 horas
   workflow_dispatch:
 
 jobs:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Generate the snake
+      - name: Gerar a cobrinha
         uses: Platane/snk@v3
         with:
           github_user_name: Camilaronzzani
@@ -21,12 +21,11 @@ jobs:
             ./snake/github-snake.svg
             ./snake/github-snake-dark.svg?palette=github-dark
 
-      - name: Commit and push
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Generated snake 🐍" || echo "No changes to commit"
-          git push https://$TOKEN@github.com/Camilaronzzani/Camilaronzzani.git main
+      - name: Commit e Push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Generated snake 🐍"
+          branch: main
+          file_pattern: 'snake/*.svg'
         env:
-          TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
