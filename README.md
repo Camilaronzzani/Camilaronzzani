@@ -10,9 +10,7 @@
 
 - 💻 Estudante de Desenvolvimento de Software
 - 🎯 Buscando sempre aprender e evoluir na área de tecnologia
-- ❤️ Apaixonada por Front-end, Back-end e desafios que envolvem código
-- 📚 Aprendendo: **Laravel**, **Tailwind CSS**, **JavaScript**, **PHP**, **MySQL**
-
+- 
 ---
 
 ## 🚀 Tecnologias e Ferramentas
