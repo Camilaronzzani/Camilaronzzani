@@ -77,7 +77,7 @@ Atuo com desenvolvimento Backend em PHP e Java, desenvolvimento Frontend com Vue
 ## Onde me encontrar
 
 <div align="center">
-  <a href="https://www.linkedin.com/in/seu-linkedin/" target="_blank">
+  <a href="https://www.linkedin.com/in/camila-luiza-ronzzani-da-silva-18b919189/" target="_blank">
     <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
   <a href="mailto:camilasiva2863@gmail.com">
